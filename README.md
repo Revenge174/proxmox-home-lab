@@ -1,8 +1,108 @@
-# Proxmox Home Lab – Wake-on-LAN Access da remoto
+# Proxmox Home Lab – Remote Wake-on-LAN Access
+
+---
+
+## 📚 Language / Lingua
+
+- 🇬🇧 [English version](#english-version)
+- 🇮🇹 [Versione italiana](#versione-italiana)
+
+---
+
+
+
+## 🇬🇧 English Version
+
+This project documents the setup of my home virtualization lab using Proxmox VE, with a system configured to power on remotely via Wake-on-LAN (WOL) and managed entirely via web interface, even without physical access to the machine.
+
+### 1. Hardware specifications
+
+The machine I used for Proxmox is a recycled workstation acting as a hypervisor:
+
+- **CPU:** Intel Xeon E5-2695 v3 (14 cores / 28 threads)
+- **RAM:** 32GB DDR4
+- **Disk:** 512GB SSD
+- **Network card:** Intel with Wake-on-LAN support
+- **Hostname:** `lab-proxmox`
+- **Location:** Garage, connected via Ethernet to the router
+
+---
+
+### 2. Proxmox installation
+
+- Downloaded the ISO from the official Proxmox website
+- Created a bootable USB using **Balena Etcher**
+- Installed Proxmox on internal SSD with standard configuration
+- Assigned static IP: `192.168.1.150`
+- Accessed the web interface from browser:
+  ```
+  https://192.168.1.150:8006
+  ```
+  *(using Chrome and accepting the self-signed certificate)*
+
+---
+
+### 3. Wake-on-LAN configuration
+
+- Enabled WOL in BIOS (Wake on PCI-E)
+- Verified in terminal:
+  ```bash
+  ethtool eno1 | grep Wake-on
+  ```
+  Result: `Wake-on: g`
+- Saved MAC address: `00:11:22:33:44:55`
+
+---
+
+### 4. WakeMeOnLan from Windows
+
+To power on the machine remotely:
+
+- Downloaded **WakeMeOnLan** from Nirsoft
+- Added manual entry:
+  - IP: `192.168.1.150`
+  - MAC: `00:11:22:33:44:55`
+  - Name: `lab-proxmox`
+- Right-click → "Wake Up Selected Computers"
+
+✅ Works perfectly.
+
+---
+
+### 5. External remote access (in progress)
+
+- Port forwarding on Iliad router (port 8006 → 192.168.1.150)
+- Dynamic DNS not yet configured
+- Considering **Tailscale** for secure VPN access
+
+---
+
+### 6. Images (from the web)
+
+- BIOS WOL screenshot  
+- Proxmox WebUI interface  
+- WakeMeOnLan configured
+
+---
+
+### 7. Final thoughts
+
+This setup is the first step in building a stable and remotely manageable home lab. My goal is to create a reliable environment to experiment with virtualization, networking, and security tools. Future additions may include virtual firewalls, SIEMs, and advanced networking.
+
+---
+
+### 8. About
+
+Created by **Sebastiano Daniele Condorelli**  
+LinkedIn: [www.linkedin.com/in/sebastianodanielecondorelli](https://www.linkedin.com/in/sebastianodanielecondorelli)  
+2025
+
+---
+
+## 🇮🇹 Versione italiana
 
 Questo report nasce dalla mia esigenza di creare un piccolo laboratorio casalingo stabile, gestibile da remoto, senza dover tenere acceso un PC 24 ore su 24. La macchina è collocata in garage, senza monitor né tastiera: faccio tutto in remoto da altri dispositivi. Il sistema è stato configurato per accendersi tramite Wake-on-LAN e per essere gestito via browser attraverso Proxmox.
 
----
 
 ## 1. Specifiche hardware
 
