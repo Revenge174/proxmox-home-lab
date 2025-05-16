@@ -11,7 +11,7 @@
 
 
 
-## 🇬🇧 English Version
+##  English Version
 
 This project documents the setup of my home virtualization lab using Proxmox VE, with a system configured to power on remotely via Wake-on-LAN (WOL) and managed entirely via web interface, even without physical access to the machine.
 
@@ -99,7 +99,7 @@ LinkedIn: [www.linkedin.com/in/sebastianodanielecondorelli](https://www.linkedin
 
 ---
 
-## 🇮🇹 Versione italiana
+##  Versione italiana
 
 Questo report nasce dalla mia esigenza di creare un piccolo laboratorio casalingo stabile, gestibile da remoto, senza dover tenere acceso un PC 24 ore su 24. La macchina è collocata in garage, senza monitor né tastiera: faccio tutto in remoto da altri dispositivi. Il sistema è stato configurato per accendersi tramite Wake-on-LAN e per essere gestito via browser attraverso Proxmox.
 
