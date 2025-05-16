@@ -77,11 +77,17 @@ To power on the machine remotely:
 
 ---
 
-### 6. Images (from the web)
+## 6. Images (from the web)
 
-- BIOS WOL screenshot  
-- Proxmox WebUI interface  
-- WakeMeOnLan configured
+### BIOS Screenshot with Wake-on-LAN Enabled
+![BIOS WOL](img/bios.jpg)
+
+### Proxmox Web Interface
+![Proxmox WebUI](img/proxmox.png)
+
+### WakeMeOnLan Application Configured
+![WakeMeOnLan](img/wakemeonlan.png)
+
 
 ---
 
